@@ -1,1 +1,15 @@
-/* pages/demo/demo.wxss */
+.test_cls{
+    width: 200rpx;
+    height: 200rpx;
+    background-color: #ccc;
+}
+.text_color{
+    color:red;
+}
+swiper{
+    width: 100%;
+    height: calc(100vw*280/520);
+}
+.swiper_img{
+    width: 100%;
+}

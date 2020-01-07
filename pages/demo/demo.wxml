@@ -1,9 +1,104 @@
-<!-- 相当于span -->
-<text>1</text>
+<!-- 
+    相当于span 
+    selectable 长按复制
+    space  连续空格
+    decode  解码，在存在字符实体时非常有用
+-->
+<text selectable>1</text>
 <text>2</text>
-<!-- div -->
-<view>支持表达式(三元、字符串拼接、数学):{{1+2}}</view>
-<view data-index="{{index}}">{{msg}}</view>
+<!-- 
+    div 
+    hover-class 点击添加类名
+    hover-stop-propagation  阻止事件冒泡
+-->
+<view hover-class="text_color">支持表达式(三元、字符串拼接、数学):{{1+2}}</view>
+<view data-index="{{index}}" hover-stop-propagation>{{msg}}</view>
+<!--
+    img图片
+        默认320*240
+        src 收到2M小程序大小限制，建议使用网络资源（土豆图床）
+        mode 与父元素的适配方式 （aspectFit|widthFix常用）
+        lazy-load 懒加载
+        bindload 图片载入后的回调
+        show-menu-by-longpress 长按开启识别
+-->
+<image class="" src="" />
+<!--
+    轮播图swiper
+        默认宽100%，高150px，无法实现由内容撑开高度，需要根据原图宽高等比例进行计算
+            如520*280
+            计算比例
+                swiper宽/swiper高 = 520/280
+        每一项为swiper-item，必须搭配使用
+-->
+<swiper autoplay circular indicator-dots interval="1000">
+    <swiper-item>
+        <image class="swiper_img" mode="widthFix" src="//img.alicdn.com/tfs/TB1rR2VsUY1gK0jSZFCXXcwqXXa-520-280.jpg_q90_.webp" />
+    </swiper-item>
+    <swiper-item>
+        <image class="swiper_img" mode="widthFix" src="https://aecpm.alicdn.com/simba/img/TB1JNHwKFXXXXafXVXXSutbFXXX.jpg" />
+    </swiper-item>
+</swiper>
+<!--
+    导航navigator
+        默认值下如果要跳转的路径已经在tabBar中使用，则无效
+        url:跳转路径
+        target:可以用来跳转到其他小程序页面
+        open-type：跳转方式
+-->
+<navigator url="/pages/search/search">页面跳转</navigator>
+<!--
+    v-html:rich-text
+        对象数组或标签字符串
+
+-->
+<rich-text class="" nodes="{{rich_text.str}}"></rich-text>
+<rich-text class="" nodes="{{rich_text.obj_arr}}"></rich-text>
+<!--
+    button
+        open-type
+            contact  客户会话
+                -必须由appid
+                -在开发中设置客服微信
+            share    转发到朋友而不是朋友圈
+            getPhoneNumber  获取用户手机号，非企业账号不可使用,且需要后端解析后才能使用
+            getUserInfo 获取用户信息，信息返回在bindgetuserinfo回调中
+            launchApp  在小程序中打开app
+            openSetting  小程序授权页面，如果用户未授权则为空
+            feedback  问题反馈
+
+
+-->
+<button open-type="contact">contact</button>
+<button open-type="share">share</button>
+<button open-type="getUserInfo" bindgetuserinfo="get_user_info">getUserInfo</button>
+<!--
+    字体图标icon
+        type
+        size
+        color
+-->
+<icon type="success" color="red" size="100"></icon>
+<!--
+    单选框radio
+        color改色
+        必须作为radio-group的子元素
+-->
+<radio-group bindchange="select_gender">
+    <radio value='male'>男</radio>
+    <radio color="red" value='female'>女</radio>
+</radio-group>
+<text>您选择的是:{{gender}}</text>
+<!--
+    复选框checkbox
+        必须作为radio-group的子元素
+-->
+<radio-group>
+    <checkbox>vue</checkbox>
+    <checkbox>react</checkbox>
+    <checkbox>angular</checkbox>
+</radio-group>
+  
 <!-- 
     循环 
         非嵌套循环时，wx:for-item和wx:for-index可省略
@@ -12,6 +107,8 @@
     block 
         相当于react中的fragment，标签占位，并不实际渲染
 -->
+
+
 <view>
     <view 
         wx:for="{{list}}" 
@@ -25,7 +122,7 @@
         wx:for="{{obj}}"
         wx:for-item="age"
         wx:for-index="name"
-        wx:key="zs"
+        wx:key="age"
     >
         {{name}}:{{age}}
     </block>
@@ -46,4 +143,15 @@
 <view wx:else="{{is_show}}">wx:else控制显示与隐藏</view>
 <view hidden="{{true}}">wx:hidden控制显示与隐藏</view>
 <view hidden>wx:hidden控制显示与隐藏</view>
-
+<!-- 
+    事件绑定 
+        无法通过函数名直接进行参数传递，需要借助data属性绑定参数
+-->
+<input type="text" bindinput="input_change" />
+<text>{{base_num}}</text>
+<button bindtap="user_click" data-operate="{{1}}">+</button>
+<button bindtap="user_click" data-operate="{{-1}}">-</button>
+<!--
+    css
+-->
+<view class="test_cls">200*200</view>

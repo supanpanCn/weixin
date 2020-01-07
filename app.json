@@ -1,6 +1,7 @@
 {
   "pages": [ 
     "pages/demo/demo",
+    "pages/self_com/self_com",
     "pages/index/index", 
     "pages/mine/mine",
     "pages/search/search",
