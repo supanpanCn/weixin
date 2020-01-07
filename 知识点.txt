@@ -1,1 +1,69 @@
 开发者工具下载：https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html
+贴图工具：https://zh.snipaste.com/
+文件类型：wxss、wxml、js、json
+目录结构：
+	pages 页面文件夹
+		index 首页
+			index.js 逻辑
+			index.json 配置
+			index.wxml 结构
+			index.wxss 样式
+		logs 日志
+	utils 第三方工具js
+	app.js 入口文件
+	app.json 全局的配置，会被局部json覆盖
+	app.wxss 全局样式
+	project.config.json 项目配置
+	sitemap.json 微信索引配置，发布上线时必须
+文件配置
+	pages：页面数组，默认第一个成员为首页
+	windows：修改顶部栏页面样式
+		navigationBarTextStyle：只有黑白两色可选
+		backgroundTextStyle：下拉loading的样式，必须开启enablePullDownRefresh后才有效，可选择配合backgroundColor
+	tabBar：底部的菜单导航
+		颜色值只支持16进制
+		可以通过position改变位置
+	页面配置：修改页面的头部显示
+wxml
+	text 
+		--span 
+	view 
+		--div
+	checkbox  
+		--<input type='checkbox'/>
+	button
+		--button
+	input
+		--input
+	navigator
+		--a
+		--如果要跳转的路径已经在tabBar中使用，则无效
+js
+	Page({	方法必须顶层调用
+		
+		data:{} //数据库
+	})
+事件绑定
+	bindinput 处理input
+	bindtap  相当于click
+	无法直接通过方法传参，参数可通过data自定义
+wxss
+	750rpx进行屏幕划分
+	公式：750rpx*元素宽/屏幕宽
+	通过@import导入外部wxss文件
+	不支持通配符
+	使用less
+		"less.compile":{
+        			"outExt":".wxss"
+    		}
+设置为网络图片
+	https://images.ac.cn/
+修改appid
+36
+
+
+	
+		
+
+	                                                                  
+	
