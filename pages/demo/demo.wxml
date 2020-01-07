@@ -1,0 +1,49 @@
+<!-- 相当于span -->
+<text>1</text>
+<text>2</text>
+<!-- div -->
+<view>支持表达式(三元、字符串拼接、数学):{{1+2}}</view>
+<view data-index="{{index}}">{{msg}}</view>
+<!-- 
+    循环 
+        非嵌套循环时，wx:for-item和wx:for-index可省略
+        *this：将成员作为绑定的key
+        对象循环时，for-item为值，for-index为键
+    block 
+        相当于react中的fragment，标签占位，并不实际渲染
+-->
+<view>
+    <view 
+        wx:for="{{list}}" 
+        wx:for-item="item" 
+        wx:for-index="index"
+        wx:key="*this"
+    >
+        {{index}}--{{item}}
+    </view>
+    <block
+        wx:for="{{obj}}"
+        wx:for-item="age"
+        wx:for-index="name"
+        wx:key="zs"
+    >
+        {{name}}:{{age}}
+    </block>
+</view>
+<!-- 
+    显示与隐藏(区别在于占不占位)
+        wx:if
+            wx:if 
+            wx:elif
+            wx:else
+        hidden
+            hidden
+            hidden="{{boolean}}"
+            不能和css中的display一起使用
+-->
+<view wx:if="{{false}}">wx:if控制显示与隐藏</view>
+<view wx:elif="{{is_show}}">wx:elif控制显示与隐藏</view>
+<view wx:else="{{is_show}}">wx:else控制显示与隐藏</view>
+<view hidden="{{true}}">wx:hidden控制显示与隐藏</view>
+<view hidden>wx:hidden控制显示与隐藏</view>
+
