@@ -1,0 +1,19 @@
+项目结构
+	styles 公共样式
+	component 组件
+	lib 第三方库
+	utils 辅助函数
+	request 接口
+	pages 页面
+字体图标的使用
+	在阿里图标库中选择在线链接打开复制css--在app.wxss中导入styles中的css--以class="iconfont iconClassName"使用
+css中的变量的声明及使用
+	--valName：value 声明
+	color/font-size：var(--valName)
+ajax
+	在开发设置中设置合法域名
+	request中进行封装以避免回调地狱
+取非
+	&:nth-last-child(-n+4){除了第一个}
+nth-child和nth-of-type
+	前者选子元素，后者选元素本身

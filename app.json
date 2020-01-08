@@ -1,28 +1,39 @@
 {
   "pages": [ 
-    "pages/self_com/self_com",
-    "pages/demo/demo",
     "pages/index/index", 
-    "pages/mine/mine",
-    "pages/search/search",
-    "pages/category/category",
-    "pages/cart/cart",
-    "pages/logs/logs" 
+    "pages/category/category", 
+    "pages/goods_list/goods_list", 
+    "pages/goods_detail/goods_detail", 
+    "pages/cart/cart", 
+    "pages/collect/collect", 
+    "pages/order/order", 
+    "pages/search/search", 
+    "pages/user/user", 
+    "pages/feedback/feedback", 
+    "pages/login/login", 
+    "pages/auth/auth", 
+    "pages/pay/pay", 
+
+    "pages/self_com/self_com",
+    "pages/demo/demo"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#ccc",
-    "navigationBarTitleText": "my first",
-    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#eb4450",
+    "navigationBarTitleText": "黑马优购",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh":true,
     "backgroundColor":"yellow"
   },
   "tabBar":{
+    "color":"#999",
+    "selectedColor":"#ff2d4a",
+    "backgroundColor":"#fafafa",
     "list":[{
       "pagePath":"pages/index/index",
       "text":"首页",
-      "iconPath":"./common/imgs/cart.png",
-      "selectedIconPath":"./common/imgs/cart-o.png"
+      "iconPath":"./common/imgs/home.png",
+      "selectedIconPath":"./common/imgs/home-o.png"
     },{
       "pagePath": "pages/category/category",
       "text": "分类",
@@ -34,8 +45,8 @@
       "iconPath": "./common/imgs/cart.png",
       "selectedIconPath": "./common/imgs/cart-o.png"
     },{
-      "pagePath": "pages/mine/mine",
-      "text": "个人中心",
+      "pagePath": "pages/user/user",
+      "text": "我的",
       "iconPath": "./common/imgs/my.png",
       "selectedIconPath": "./common/imgs/my-o.png"
     }]
@@ -43,3 +54,5 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
+
+

@@ -1,0 +1,4 @@
+<!--搜索框-->
+<view class="searchBox">
+    <navigator url="/pages/search/search">搜索</navigator>
+</view>

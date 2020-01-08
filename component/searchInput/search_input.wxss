@@ -1,0 +1,14 @@
+.searchBox {
+  height: 90rpx;
+  padding: 10rpx;
+  background-color: var(--themeColor);
+}
+.searchBox navigator {
+  height: 100%;
+  border-radius: 15rpx;
+  display: flex;
+  color: #666;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}

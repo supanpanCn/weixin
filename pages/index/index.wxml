@@ -1,13 +1,52 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<!--首页-->
+<view class="homeBox">
+  <!--搜索框-->
+  <Search_input></Search_input>
+  <!--搜索框结束-->
+  <!--
+    轮播图
+      swiper高度默认150，无法被子元素撑开,因此必须进行设置
+      image默认320*240，需要指定mode为widthFix+css宽100%（宽度固定高等比例自适应）
+  -->
+  <swiper indicator-dots autoplay circular interval="1000" class="swiper_wrapper">
+    <swiper-item wx:for="{{swiper_list}}" wx:key="goods_id">
+      <navigator open-type="{{item.open_type}}">
+        <image 
+          src="{{item.image_src}}"
+          mode="widthFix"
+        >
+      </image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+  <!--轮播图结束-->
+  <!--导航-->
+  <view class="nav">
+      <navigator wx:for="{{nav_list}}" wx:key="index">
+        <image mode="widthFix" src="{{item.image_src}}"></image>
+      </navigator>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <!--导航结束-->
+  <!--楼层-->
+  <view class="floor" 
+    wx:for="{{floor_list}}"
+    wx:for-item="item"
+    wx:for-index="index"
+    wx:key="index"
+  >
+    <view class="tit">
+      <image mode="widthFix" src="{{item.floor_title.image_src}}"></image>
+    </view>
+    <view class="inner_goods">
+      <navigator 
+        wx:for="{{item.product_list}}"
+        wx:for-item="v"
+        wx:for-index="i"
+        wx:key="name"
+      >
+        <image mode="{{i==0?'widthFix':'scaleToFill'}}" src="{{v.image_src}}"></image>
+      </navigator>
+    </view>
   </view>
+  <!--楼层结束-->
 </view>
