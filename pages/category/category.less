@@ -1,0 +1,41 @@
+.main{
+    width: 100vw;
+    height: 980rpx;
+    display: flex;
+    .l{
+        flex:2;
+        .menu_item{
+            height: 80rpx;
+            text-align: center;
+            line-height: 80rpx;
+            font-size: 30rpx;
+        }
+        .menu_item.act{
+            color:var(--themeColor);
+            border-left: 5rpx solid currentColor;
+        }
+    }
+    .r{
+        flex: 5;
+        .con_item{
+            display: flex;
+            flex-wrap: wrap;
+            .tit{
+                width: 100%;
+                text-align: center;
+                height: 80rpx;
+                line-height: 80rpx;
+            }
+            navigator{
+                width: 33.33%;
+                text-align: center;
+                image{
+                    width: 50%;
+                }
+                .good_tit{
+
+                }
+            }
+        }
+    }
+}

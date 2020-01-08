@@ -1,2 +1,40 @@
-<!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+<!--分类页面-->
+<Search_input></Search_input>
+<view class="main">
+    <!--左侧导航-->
+    <scroll-view scroll-y class="l">
+        <view 
+            class="menu_item {{active_index==index?'act':''}}" 
+            wx:for="{{left_menu}}"
+            wx:key="index"
+            bindtap="menu_item_change"
+            data-active="{{index}}"
+        >
+            {{item}}
+        </view>
+    </scroll-view>
+    <!--左侧导航结束-->
+    <!--右侧内容-->
+    <scroll-view scroll-y class="r">
+        <view 
+            class="con_item"
+            wx:for="{{right_con}}"
+            wx:key="cat_id"
+            wx:for-item="item"
+            wx:for-index="index"
+        >
+            <view class="tit">/{{item.cat_name}}/</view>
+            <navigator 
+                wx:for="{{item.children}}"
+                wx:for-index="i"
+                wx:for-item="v"
+                wx:key="cat_id"
+            >
+                <image mode="widthFix" src="{{v.cat_icon}}"></image>
+                <view class="good_tit">{{v.cat_name}}</view>
+            </navigator>
+        </view>
+    </scroll-view>
+    <!--右侧内容结束-->
+</view>
+

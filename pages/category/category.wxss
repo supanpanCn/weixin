@@ -1,1 +1,38 @@
-/* pages/category/category.wxss */
+.main {
+  width: 100vw;
+  height: 980rpx;
+  display: flex;
+}
+.main .l {
+  flex: 2;
+}
+.main .l .menu_item {
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 30rpx;
+}
+.main .l .menu_item.act {
+  color: var(--themeColor);
+  border-left: 5rpx solid currentColor;
+}
+.main .r {
+  flex: 5;
+}
+.main .r .con_item {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main .r .con_item .tit {
+  width: 100%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.main .r .con_item navigator {
+  width: 33.33%;
+  text-align: center;
+}
+.main .r .con_item navigator image {
+  width: 50%;
+}

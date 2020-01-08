@@ -10,10 +10,21 @@
 css中的变量的声明及使用
 	--valName：value 声明
 	color/font-size：var(--valName)
+nth-child和nth-of-type
+	前者选子元素，后者选元素本身
+在less中使用calc
+	height:~'calc()'
+currentColor可以直接使用当前{}中定义的颜色
 ajax
 	在开发设置中设置合法域名
 	request中进行封装以避免回调地狱
 取非
 	&:nth-last-child(-n+4){除了第一个}
-nth-child和nth-of-type
-	前者选子元素，后者选元素本身
+开启flex后子元素默认100%父盒子
+刷新后跳转到首页
+	自定义编译模式
+简单数据【1,2,3】key的值为*this,复杂数据【{},{},{}】key绑定index即可
+缓存
+	onLoad获取接口数据之前先判断本地是否存在数据
+本地存储
+	wx.get/setStorageSync
