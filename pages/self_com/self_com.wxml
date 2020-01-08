@@ -1,2 +1,8 @@
-<!--pages/self_com/self_com.wxml-->
-<text>pages/self_com/self_com.wxml</text>
+<!--
+    使用自定义组件
+        通过属性向下传参
+        通过事件监听获取
+-->
+<Tabs tabs="{{tabs}}" bind:item-change="handle_item_change">
+    <block>123</block>
+</Tabs>

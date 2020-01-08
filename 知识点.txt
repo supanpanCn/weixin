@@ -23,6 +23,7 @@
 	tabBar：底部的菜单导航
 		颜色值只支持16进制
 		可以通过position改变位置
+		list中的页面成员都会展示tabBar，并会响应onTabItemTap事件
 	页面配置：修改页面的头部显示
 wxml
 	text 
@@ -58,8 +59,12 @@ wxss
     		}
 设置为网络图片
 	https://images.ac.cn/
-修改appid
-36
+自定义组件
+	在小程序工具中新增Component--在page的引用页面配置json文件的usingComponents
+生命周期
+	应用
+	页面
+
 
 
 	

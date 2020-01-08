@@ -1,0 +1,17 @@
+<!--自定义组件-->
+<view class="tabs">
+    <view class="tit">
+        <view 
+            class="tit_item {{item.isActive?'active':''}}" 
+            wx:for="{{tabs}}" 
+            wx:key="id"
+            bindtap="click_tab_item"
+            data-active="{{index}}"
+        >
+            {{item.name}}
+        </view>
+    </view>
+    <view class="main">
+        <slot></slot>
+    </view>
+</view>

@@ -1,11 +1,12 @@
-//app.js
-App({
-  onLaunch: function () {
+App({//应用生命周期
+   // 应用场景：获取用户信息,只会触发一次
+  onLaunch: function () { 
+    console.log('onlunch')
+    // abc 模拟报错
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
@@ -32,6 +33,22 @@ App({
         }
       }
     })
+  },
+  // 应用场景：类似visibleChange，可判断用户是否在小程序内,可重置数据或动画效果
+  onShow:function(){
+    console.log('onShow')
+  },
+  // 应用场景：暂停或清除定时器
+  onHide:function(){
+    console.log('onHide')
+  },
+  // 应用场景：发生错误时传递给后台，迭代时参考
+  onError:function(err){
+    console.log('onError',err)
+  },
+  // 应用第一次启动找不到第一个入口文件时才触发，用于容错处理
+  onPageNoFound:function(){
+    console.log('onPageNoFound')
   },
   globalData: {
     userInfo: null
