@@ -1,2 +1,37 @@
-<!--pages/goods_list/goods_list.wxml-->
-<text>pages/goods_list/goods_list.wxml</text>
+<!--商品列表-->
+<Search_input></Search_input>
+<!--选项卡-->
+<Tab tabs="{{tabs}}" bind:item-change="tab_item_change">
+    <!--全部-->
+    <block wx:if="{{act_index==0}}">
+        <view class="all">
+            <navigator 
+                wx:for="{{goods_list}}"
+                wx:key="goods_id"
+                wx:if="{{item.goods_big_logo}}"
+            >
+                <view class="l">
+                    <image mode="widthFix" src="{{item.goods_big_logo}}" ></image>
+                </view>
+                <view  class="r">
+                    <view class="tit">{{item.goods_name}}</view>
+                    <text class="price">￥{{item.goods_price}}</text>
+                </view>
+            </navigator>
+        </view>
+    </block>
+    <!--全部end-->
+    <!--销量-->
+    <block wx:elif="{{act_index==1}}">
+        <view class="sale">
+        </view>
+    </block>
+    <!--销量end-->
+    <!--价格-->
+    <block wx:else>
+        <view class="price">
+        </view>
+    </block>
+    <!--价格end-->
+</Tab>
+<!--选项卡end-->

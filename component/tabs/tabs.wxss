@@ -1,17 +1,19 @@
 .tabs{
-
+    width: 100%;
+    
 }
 .tit{
     display: flex;
-    padding: 10rpx 0;
+    border-bottom: 1px solid #ccc;
 }
 .tit_item{
     flex:1;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 15rpx 0;
 }
 .active{
-    color:red;
-    border-bottom: 5rpx solid currentColor;
+    color:var(--themeColor);
+    border-bottom: 3rpx solid currentColor;
 }

@@ -1,4 +1,4 @@
-import {request} from './../../request/index.js'
+import {request,URL} from './../../request/index.js'
 Page({
 
   /**
@@ -8,7 +8,8 @@ Page({
     data_list:[],
     left_menu:[],
     right_con:[],
-    active_index:0
+    active_index:0,
+    distance_top:0
   },
 
   /**
@@ -29,7 +30,7 @@ Page({
     
   },
   getData(){
-    request({url:"https://api.zbztb.cn/api/public/v1/categories"})
+    request({url:URL.CATE_DATA})
       .then(res=>{
         let data = res.data.message
         wx.setStorageSync('cates', {
@@ -51,9 +52,11 @@ Page({
   menu_item_change(ev){
     let active_index = ev.currentTarget.dataset.active
     let right_con = this.data.data_list[active_index].children
+    
     this.setData({
       right_con,
-      active_index
+      active_index,
+      distance_top:0
     })
   }
 

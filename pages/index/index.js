@@ -1,4 +1,4 @@
-import {request} from './../../request/index.js'
+import {request,URL} from './../../request/index.js'
 Page({
   data: {
     swiper_list: [],
@@ -27,9 +27,9 @@ Page({
   },
   //页面开始加载请求接口，渲染轮播图
   onLoad: function (options) {
-    this.get_data('https://api.zbztb.cn/api/public/v1/home/swiperdata')
-    this.get_data('https://api.zbztb.cn/api/public/v1/home/catitems',2)
-    this.get_data('https://api.zbztb.cn/api/public/v1/home/floordata',3)
+    this.get_data(URL.HOME_SWIPER_DATA)
+    this.get_data(URL.HOME_NAV_LIST,2)
+    this.get_data(URL.HOME_FLOOR_DATA,3)
   },
   onReady: function () {
 

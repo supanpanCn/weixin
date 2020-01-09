@@ -11,3 +11,10 @@ export const request = (params)=>{
         })
     })
 }
+export const URL={
+    HOME_SWIPER_DATA:'https://api.zbztb.cn/api/public/v1/home/swiperdata',
+    HOME_NAV_LIST:'https://api.zbztb.cn/api/public/v1/home/catitems',
+    HOME_FLOOR_DATA:'https://api.zbztb.cn/api/public/v1/home/floordata',
+    CATE_DATA:'https://api.zbztb.cn/api/public/v1/categories',
+    GOOD_LIST:'https://api.zbztb.cn/api/public/v1/goods/search'
+}

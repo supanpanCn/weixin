@@ -1,0 +1,36 @@
+
+.all{
+    navigator{
+        display: flex;
+        border-bottom: 1rpx solid #ccc;
+        .l{
+            flex:2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            image{
+                width: 70%;
+            }
+        }
+        .r{
+            flex:3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            .tit{
+                // 灵活盒子模型
+                display: -webkit-box;
+                // 子元素垂直或水平排列
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                // 文本超行溢出
+                -webkit-line-clamp: 2;
+            }
+            .price{
+                color: var(--themeColor);
+                font-size: 32rpx;
+            }
+        }
+    }
+
+}

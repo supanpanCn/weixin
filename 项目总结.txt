@@ -15,6 +15,8 @@ nth-child和nth-of-type
 在less中使用calc
 	height:~'calc()'
 currentColor可以直接使用当前{}中定义的颜色
+https://blog.csdn.net/swebin/article/details/90240545     webkit-box
+-webkit-line-clamp 文本超行溢出
 ajax
 	在开发设置中设置合法域名
 	request中进行封装以避免回调地狱
@@ -28,3 +30,10 @@ ajax
 	onLoad获取接口数据之前先判断本地是否存在数据
 本地存储
 	wx.get/setStorageSync
+支持async+await
+	https://github.com/facebook/regenerator/blob/5703a79746fffc152600fdcef46ba9230671025a/packages/regenerator-runtime/runtime.js
+	拷贝一份代码到lib/runtime/runtime.js中
+	在组件中单独引入
+路由传参
+	？key=val 传
+	onLoad函数的参数中获取
