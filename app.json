@@ -22,8 +22,7 @@
     "navigationBarBackgroundColor": "#eb4450",
     "navigationBarTitleText": "黑马优购",
     "navigationBarTextStyle": "white",
-    "enablePullDownRefresh":true,
-    "backgroundColor":"yellow"
+    "enablePullDownRefresh":true
   },
   "tabBar":{
     "color":"#999",

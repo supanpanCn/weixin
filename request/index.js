@@ -1,4 +1,10 @@
+let num = 0
 export const request = (params)=>{
+    num++
+    wx.showLoading({
+        title: '加载中',
+        mask:true
+    })
     return new Promise((resolve,reject)=>{
         wx.request({
             ...params,
@@ -7,6 +13,10 @@ export const request = (params)=>{
             },
             fail:(err)=>{
                 reject(err)
+            },
+            complete:()=>{
+                num--
+                if(num==0) wx.hideLoading()
             }
         })
     })
