@@ -44,3 +44,13 @@
 		--在全局request中显示或隐藏
 		--须定义到complete中
 		--对于同时多个请求，使用变量进行条件判断关闭
+20-轮播图+image必须修改轮播图高度
+21-vh和vw只是一个参考单位，并不总是height为vh
+22-文字超过指定行数时显示...
+	display: -webkit-box
+                overflow: hidden
+                -webkit-line-clamp: 2
+                -webkit-box-orient: vertical
+23-ios不识别webp
+24-图片预览
+	wx.previewImage

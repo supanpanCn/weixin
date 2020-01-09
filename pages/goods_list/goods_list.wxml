@@ -9,6 +9,7 @@
                 wx:for="{{goods_list}}"
                 wx:key="goods_id"
                 wx:if="{{item.goods_big_logo}}"
+                url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}"
             >
                 <view class="l">
                     <image mode="widthFix" src="{{item.goods_big_logo}}" ></image>
