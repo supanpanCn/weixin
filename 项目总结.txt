@@ -41,3 +41,6 @@
 	wx.showToast
 19-加载中
 	wx.showLoading
+		--在全局request中显示或隐藏
+		--须定义到complete中
+		--对于同时多个请求，使用变量进行条件判断关闭
