@@ -19,19 +19,22 @@
 <!--购物车-->
 <view class="car" wx:if="{{cart}}">
     <view class="title">购物车</view>
-    <view class="shop">
-        <checkbox-group>
-            <checkbox></checkbox>
+    <view class="shop" 
+        wx:for="{{cart}}"
+        wx:key="index"
+    >
+        <checkbox-group data-id="{{index}}" bindchange="select_shop">
+            <checkbox checked="{{item.checked}}"></checkbox>
         </checkbox-group>
-        <image mode="widthFix" src="{{cart[0].goods_small_logo}}"></image>
+        <image mode="widthFix" src="{{item.goods_small_logo}}"></image>
         <view class="description">
-            <view class="top">1</view>
+            <view class="top">{{item.goods_name}}</view>
             <view class="bottom">
-                <text>￥6025</text>
+                <text>￥{{item.goods_price}}</text>
                 <view class="btn">
-                    <view class="btn_add">-</view>
-                    <view>1</view>
-                    <view class="btn_reduce">+</view>
+                    <view class="btn_add" data-operate="{{1}}" data-id="{{index}}" bindtap="add_car">+</view>
+                    <view>{{item.num}}</view>
+                    <view class="btn_reduce" data-operate="{{-1}}" data-id="{{index}}" bindtap="add_car">-</view>
                 </view>
             </view>
         </view>
@@ -42,18 +45,18 @@
 </view>
 <!--工具栏-->
 <view class="tools">
-    <checkbox-group>
-        <checkbox></checkbox>全选
+    <checkbox-group bindchange="select_all">
+        <checkbox checked="{{check_all}}"></checkbox>全选
     </checkbox-group>
     <view class="right">
         <view class="price">
-            <view>合计:</view>
+            <view>合计：</view>
             <view>
-                <text>￥ 16752</text>
+                <text>￥ {{price_all}}</text>
                 <text>包含运费</text>
             </view>
         </view>
-        <view class="count">结算(25)</view>
+        <view class="count">结算<text wx:if="{{num_all}}">({{num_all}})</text></view>
     </view>
 </view>
 <!--工具栏end-->

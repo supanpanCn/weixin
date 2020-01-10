@@ -48,6 +48,7 @@ Page({
     }else{
       car[index].num+=1
     }
+    car.forEach(v=>v.checked=true)
     wx.setStorageSync('cart', car);
     wx.showToast({
       title: '加入成功',

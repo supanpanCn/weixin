@@ -6,8 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    address:null,
-    cart:null
+    address: null,
+    cart: null,
+    check_all: false,
+    price_all: 0,
+    num_all: 0
   },
   // 选择收获地址
   async select_address() {
@@ -22,11 +25,57 @@ Page({
       let res = await chooseAddress()
       // 保存一份用户地址信息
       wx.setStorageSync('address', res);
-        
+
       console.log(res)
-    }catch(err){
+    } catch (err) {
       console.log('用户取消了权限')
     }
+  },
+  // 选择商品等待付款
+  select_shop(e) {
+    let i = e.currentTarget.dataset.id
+    let {cart} = this.data
+    cart[i].checked = !cart[i].checked
+    this.reset_tools(cart)
+    wx.setStorageSync('cart', cart)
+  },
+  // 全选
+  select_all(ty = 1) {
+    let {cart} = this.data
+    let {check_all} = this.data
+    cart.forEach(v=>v.checked=!check_all)
+    this.reset_tools(cart)
+    wx.setStorageSync('cart', cart)
+  },
+  // 重置工具条
+  reset_tools(cart) {
+    let price_all = 0,
+        num_all = 0,
+        check_all=true
+
+    cart.forEach(v => {
+      if (v.checked) {
+        price_all += v.goods_price * v.num
+        num_all += v.num
+      }else{
+        check_all = false
+      }
+    })
+    this.setData({
+      cart,
+      price_all,
+      num_all,
+      check_all
+    })
+  },
+  // 增减购物车
+  add_car(e){
+    let operate = e.currentTarget.dataset.operate
+    let id = e.currentTarget.dataset.id
+    let {cart} = this.data
+    cart[id].num += operate
+    this.reset_tools(cart)
+    wx.setStorageSync('cart', cart)
   },
   /**
    * 生命周期函数--监听页面加载，只会执行一次
@@ -35,13 +84,12 @@ Page({
 
   },
   // 会多次执行，有点像visiblityChange
-  onShow(){
+  onShow() {
     let address = wx.getStorageSync('address')
-    let cart = wx.getStorageSync('cart')
-    console.log(cart)
+    let cart = wx.getStorageSync('cart') || []
+    this.reset_tools(cart)
     this.setData({
-      address,
-      cart
+      address
     })
   }
 
