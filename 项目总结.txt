@@ -63,3 +63,6 @@
 			undefined 未点击
 26-修改checkbox
 	checkbox .wx-checkbox-input
+27-对话框
+	wx.showModal
+28-

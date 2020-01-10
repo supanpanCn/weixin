@@ -1,4 +1,4 @@
-import { getSetting, chooseAddress, openSetting } from './../../utils/asyncWx'
+import { getSetting, chooseAddress, openSetting,showModal,showToast} from './../../utils/asyncWx'
 import regeneratorRuntime from './../../lib/runtime/runtime'
 Page({
 
@@ -69,13 +69,49 @@ Page({
     })
   },
   // 增减购物车
-  add_car(e){
+  async add_car(e){
     let operate = e.currentTarget.dataset.operate
     let id = e.currentTarget.dataset.id
     let {cart} = this.data
+    
+    if(cart[id].num==1&&operate<0){
+      let that = this
+      let res = await showModal({
+        content:'确定要删除吗'
+      })
+      if (res.confirm) {
+        cart.splice(id,1)
+        that.reset_tools(cart)
+        wx.setStorageSync('cart', cart)
+      } 
+      return
+    }
     cart[id].num += operate
     this.reset_tools(cart)
     wx.setStorageSync('cart', cart)
+  },
+  // 结算
+  async clearning(){
+    let {address,num_all} = this.data
+    
+    if(!address){
+      await showToast({
+        title:'您还没有选择收获地址~'
+      })
+      return
+    }
+
+    if(!num_all){
+      await showToast({
+        title:'您还没有选购商品~'
+      })
+      return
+    }
+
+    wx.navigateTo({
+      url: '/pages/pay/pay'
+    });
+      
   },
   /**
    * 生命周期函数--监听页面加载，只会执行一次

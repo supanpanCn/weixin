@@ -41,7 +41,7 @@
     </view>
 </view>
 <view class="car" wx:else>
-    暂时没有数据~
+    还没有选购商品哦~
 </view>
 <!--工具栏-->
 <view class="tools">
@@ -56,7 +56,7 @@
                 <text>包含运费</text>
             </view>
         </view>
-        <view class="count">结算<text wx:if="{{num_all}}">({{num_all}})</text></view>
+        <view class="count" bindtap="clearning">结算<text wx:if="{{num_all}}">({{num_all}})</text></view>
     </view>
 </view>
 <!--工具栏end-->
