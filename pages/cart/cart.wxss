@@ -1,14 +1,6 @@
 page {
   padding-bottom: 90rpx;
 }
-.address_box .address_btn {
-  padding: 30rpx;
-}
-.address_box .address_btn button {
-  width: 60%;
-  margin-left: 50%;
-  transform: translateX(-50%);
-}
 .address_box .address {
   display: flex;
   flex-direction: column;
@@ -35,17 +27,6 @@ page {
   display: flex;
   border-bottom: 1px solid #ccc;
   border-top: 1px solid #ccc;
-}
-.car .shop checkbox-group {
-  flex: 1;
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 45rpx;
-  padding-left: 40rpx;
-}
-.car .shop checkbox-group checkbox .wx-checkbox-input {
-  width: 45rpx;
-  height: 45rpx;
 }
 .car .shop image {
   flex: 2;
@@ -84,10 +65,6 @@ page {
   line-height: 50rpx;
   text-align: center;
 }
-.car .shop .description .bottom .btn .btn_add,
-.car .shop .description .bottom .btn .btn_reduce {
-  border: 1px solid #ccc;
-}
 .tools {
   position: fixed;
   left: 0;
@@ -97,10 +74,6 @@ page {
   height: 90rpx;
   line-height: 70rpx;
   padding: 10rpx 20rpx;
-}
-.tools checkbox .wx-checkbox-input {
-  width: 35rpx;
-  height: 35rpx;
 }
 .tools .right {
   position: absolute;

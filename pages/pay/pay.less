@@ -2,6 +2,14 @@ page{
     padding-bottom: 90rpx;
 }
 .address_box{
+    .address_btn{
+        padding: 30rpx;
+        button{
+            width: 60%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+    }
     .address{
         display: flex;
         flex-direction: column;
@@ -31,7 +39,17 @@ page{
         display: flex;
         border-bottom: 1px solid #ccc;
         border-top: 1px solid #ccc;
-        
+        checkbox-group{
+            flex:1;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 45rpx;
+            padding-left: 40rpx;
+            checkbox .wx-checkbox-input {
+                width: 45rpx;
+                height: 45rpx;
+            }
+        }
         image{
             flex:2;
             width: 80%;
@@ -66,7 +84,11 @@ page{
                         line-height: 50rpx;
                         text-align: center;
                     }
-                    
+                    .btn_add,
+                    .btn_reduce{
+                        
+                        border: 1px solid #ccc;
+                    }
                 }
             }
         }
@@ -82,6 +104,10 @@ page{
     height: 90rpx;
     line-height: 70rpx;
     padding: 10rpx 20rpx;
+    checkbox .wx-checkbox-input {
+        width: 35rpx;
+        height: 35rpx;
+    }
     .right{
         position: absolute;
         right: 0;

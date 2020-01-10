@@ -65,4 +65,20 @@
 	checkbox .wx-checkbox-input
 27-对话框
 	wx.showModal
-28-
+28-支付
+	wx.requestPayment（仅限企业）
+		获取token
+		创建订单	（准备接口参数;发送请求，获取订单编号）
+		准备预支付（发送请求,获取调起支付接口的参数）
+		发起微信支付（wx.requestPayment）
+		查询订单
+29-设置请求头参数
+	请求接口获取token
+		--参数获取方式 
+			button按钮的open-type='getUserInfo'  (encryptedData,rawData,iv,signature)
+			wx.login (code)
+	在request中设置header即可
+
+
+
+
