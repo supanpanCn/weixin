@@ -54,3 +54,12 @@
 23-ios不识别webp
 24-图片预览
 	wx.previewImage
+25-获取收货地址
+	wx.chooseAddress
+	须通过wx.getSetting来判断用户选择了确定还是取消
+		scope
+			true 确定
+			false 取消
+			undefined 未点击
+26-修改checkbox
+	checkbox .wx-checkbox-input

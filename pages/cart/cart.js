@@ -1,66 +1,49 @@
-// pages/cart/cart.js
+import { getSetting, chooseAddress, openSetting } from './../../utils/asyncWx'
+import regeneratorRuntime from './../../lib/runtime/runtime'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    address:null,
+    cart:null
   },
-
+  // 选择收获地址
+  async select_address() {
+    try {
+      // 获取权限状态
+      let result = await getSetting()
+      let scopeAddress = result.authSetting[`scope.address`]
+      // 如果用户拒绝过则引导用户赋予权限
+      if (scopeAddress === false) {
+        await openSetting()
+      }
+      let res = await chooseAddress()
+      // 保存一份用户地址信息
+      wx.setStorageSync('address', res);
+        
+      console.log(res)
+    }catch(err){
+      console.log('用户取消了权限')
+    }
+  },
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面加载，只会执行一次
    */
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 会多次执行，有点像visiblityChange
+  onShow(){
+    let address = wx.getStorageSync('address')
+    let cart = wx.getStorageSync('cart')
+    console.log(cart)
+    this.setData({
+      address,
+      cart
+    })
   }
+
+
 })

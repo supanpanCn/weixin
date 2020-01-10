@@ -31,6 +31,34 @@ Page({
       collect
     })
   },
+  /* 
+    加入购物车
+      1-获取缓存（vuex|redux|storage）中的数据
+      2-判断商品是否已经存在
+        --存在++
+        --不存在则push
+      3-吐司提示用户
+  */
+  push_car(){
+    let car = wx.getStorageSync('cart')||[];
+    let index = car.findIndex(v=>v.goods_id==this.data.goods_detail.goods_id)
+    if(index==-1){
+      this.data.goods_detail.num=1
+      car.push(this.data.goods_detail)
+    }else{
+      car[index].num+=1
+    }
+    wx.setStorageSync('cart', car);
+    wx.showToast({
+      title: '加入成功',
+      icon: 'success',
+      duration: 1500,
+      mask: true
+    });
+      
+      
+      
+  },
   // 预览
   look_pic(e){
     let {index} = e.currentTarget.dataset
